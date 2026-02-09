@@ -93,8 +93,3 @@ export const verifyPassword = async (password: string, hash: string): Promise<bo
 export const generateQRCode = (): string => {
   return `CAFEOS-${Date.now()}-${Math.random().toString(36).substring(2, 15)}`;
 };
-
-// Default admin credentials
-export const DEFAULT_ADMIN_EMAIL = 'admin@cafeos.ilabs.world';
-export const DEFAULT_ADMIN_PASSWORD = 'admin123';
-export const DEFAULT_COMPANY_LOGO = '/logo.png';

@@ -7,7 +7,7 @@ export const Configs = {
     upload_preset:import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || "ml_default"
   },
   instantdb:{
-    app_id: import.meta.env.VITE_INSTANTDB_APP_ID || 'b22f1eb5-80d2-4820-b0cb-7743316d365a'
+    app_id: import.meta.env.VITE_INSTANTDB_APP_ID || '###'
   },
   paystack:{
     public_key:import.meta.env.VITE_PAYSTACK_PUBLIC_KEY || ''
@@ -15,5 +15,10 @@ export const Configs = {
   theme:{
     avatar_style: import.meta.env.VITE_AVATAR_STYLE || 'adventurer',
     primary_color:import.meta.env.VITE_PRIMARY_COLOR || '#1E4384',
+  },
+  admin:{
+    default_password:import.meta.env.VITE_ADMIN_PASSWORD,
+    default_email:import.meta.env.VITE_ADMIN_EMAIL,
+    default_logo:"/logo.png"
   }
 };

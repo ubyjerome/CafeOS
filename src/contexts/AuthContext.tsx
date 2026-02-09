@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { db, hashPassword, verifyPassword, id, tx, DEFAULT_ADMIN_EMAIL, DEFAULT_ADMIN_PASSWORD, DEFAULT_COMPANY_LOGO } from '@/lib/instantdb';
+import { db, hashPassword, verifyPassword, id, tx} from '@/lib/instantdb';
 import type { User } from '@/lib/instantdb';
+import { Configs } from '@/configs';
 
 interface AuthContextType {
   user: User | null;
@@ -29,12 +30,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const settings = (settingsData?.companySettings || []) as any[];
 
     // Create default admin if it doesn't exist
-    const adminExists = users.some(u => u.email?.toLowerCase() === DEFAULT_ADMIN_EMAIL.toLowerCase());
+    const adminExists = users.some(u => u.email?.toLowerCase() === Configs.admin.default_email.toLowerCase());
     if (!adminExists) {
-      const passwordHash = await hashPassword(DEFAULT_ADMIN_PASSWORD);
+      const passwordHash = await hashPassword(Configs.admin.default_password);
       db.transact([
         tx.users[id()].update({
-          email: DEFAULT_ADMIN_EMAIL,
+          email: Configs.admin.default_email,
           name: 'Admin',
           role: 'manager',
           passwordHash,
@@ -52,7 +53,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         tx.companySettings[id()].update({
           name: 'CafeOS',
           description: 'Welcome to our cyber café! We offer premium internet services and computer access.',
-          logoUrl: DEFAULT_COMPANY_LOGO,
+          logoUrl: Configs.admin.default_logo,
           address: '123 Tech Street, Digital City',
           phone: '+234 123 456 7890',
           email: 'info@cafeos.demo',
