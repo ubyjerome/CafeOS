@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200">
+  <style>
+    text {
+      fill: #ffffff; /* default: white */
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 96px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    @media (prefers-color-scheme: light) {
+      text {
+        fill: #000000; /* light theme: black */
+      }
+    }
+  </style>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+    Cafe OS
+  </text>
+</svg>
